@@ -7,6 +7,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form/user-form.component';
 
+import { HttpClientModule} from '@angular/common/http';
+import {freeApiService} from './services/freeapi.service';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { UserFormComponent } from './user-form/user-form.component';
     ContactComponent,
     CommentsComponent,
     UserFormComponent
+    HttpClientModule
   ],
   imports: [
     BrowserModule
   ],
   providers: [
-    CommentsService
+    CommentsService,
+    freeApiService
   ],
   bootstrap: [AppComponent]
 })
