@@ -34,7 +34,6 @@ function getPostsComments(posts_id) {
 async function commentOnPosts(newComment) {
   console.log("made it to commentOnIssue in model")
   return db('comments').insert(newComment)
-
 }
 
 function removeComments(comments_id) {

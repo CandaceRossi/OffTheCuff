@@ -6,26 +6,26 @@ const app = express();
 const baseApiRouter = require('./api-router');
 
 
-const corsOptions = {
-    origin: "http://localhost:4500"
-};
+// const corsOptions = {
+//     origin: "http://localhost:4500"
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 //parse request content type - application/json 
-app.use(bodyParser.json());
-app.use(express.json());
+// app.use(bodyParser.json());
+// app.use(express.json());
 
 //parse requests of content type - apllicaiton/x-www.form-unlearncoded
 app.use(bodyParser.urlencoded({extended: true}));
 
-const db = require("./models");
+// const db = require("./models");
 //const db = require("./be/models"); ???
 
 app.use('/api', baseApiRouter);
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
     res.json({message: "Welcome to the Off The Cuff Application"})
 });
 
-module.exports = server;
+module.exports = app;
