@@ -6,5 +6,4 @@ export class CommentsComponent
     name: string;
     email: string;
     body: string; 
-    
 }
