@@ -7,7 +7,7 @@ const baseApiRouter = require('./api-router');
 
 
 const corsOptions = {
-    origin: "http://localhost:8001"
+    origin: "http://localhost:4500"
 };
 
 app.use(cors(corsOptions));
@@ -28,3 +28,4 @@ app.get("/api", (req, res) => {
     res.json({message: "Welcome to the Off The Cuff Application"})
 });
 
+module.exports = server;

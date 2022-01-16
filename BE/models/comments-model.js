@@ -1,17 +1,25 @@
-// const db = require('../data/dbConfig');
+const db = require('../data/dbConfig');
 
 
 module.exports = {
   getAllComments,
+  findCommentsById,
   getPostsComments,
-  commentOnPosts
+  commentOnPosts,
+  removeComments
 };
 
 
 function getAllComments() {
   return db('comments')
-
 }
+
+function findCommentsById(comments_id) {
+  return db("comments")
+    .where("comments_id", comments_id)
+    .first();
+}
+
 
 function getPostsComments(posts_id) {
   console.log("Made it to comments-model posts_id", posts_id)
@@ -20,12 +28,17 @@ function getPostsComments(posts_id) {
     // .join('users as u', 'u.user_id', 'c.user_id')
     .where('p.posts_id', '=', posts_id)
     .select('c.*', 'p.title', 'p.description')
-    // .select('c.*', 'p.title', 'p.description', 'u.first_name', 'u.last_name', 'u.email', 'u.board', 'u.primary_admin', 'u.sec_admin')
     .orderBy('c.create_at', 'desc')
 }
 
-async function commentOnIssue(newComment) {
+async function commentOnPosts(newComment) {
   console.log("made it to commentOnIssue in model")
   return db('comments').insert(newComment)
 
+}
+
+function removeComments(comments_id) {
+  return db("comments")
+    .where({ comments_id: comments_id })
+    .del();
 }
