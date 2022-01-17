@@ -1,12 +1,12 @@
 // Update with your config settings.
 require('dotenv').config({path: './.env'});
 // require("dotenv").config();
-// const mysql = require('mysql');
+// const mysql = require('mysql2');
 
 
 module.exports = {
   development: {
-    client: "mysql",
+    client: "mysql2",
     useNullAsDefault: true,
     connection: {
       host: process.env.DB_DEV_HOST,
@@ -29,7 +29,7 @@ module.exports = {
   }
   // ,
   // production: {
-  //   client: "mysql",
+  //   client: "mysql2",
   //   connection: process.env.DATABASE_URL,
   //   pool: {
   //     min: 2,
