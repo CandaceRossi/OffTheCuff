@@ -7,18 +7,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form/user-form.component';
 
-import { HttpClientModule} from '@angular/common/http';
-import {freeApiService} from './services/freeapi.service';
+import { HttpClientModule } from '@angular/common/http';
+import { freeApiService } from './services/freeapi.service';
+import { AddCommentsComponent } from './addcomments/add-comments/add-comments.component';
+import { CommentsDetailComponent } from './commentsdetail/comments-detail/comments-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
     CommentsComponent,
-    UserFormComponent
-    HttpClientModule
+    UserFormComponent,
+    AddCommentsComponent,
+    CommentsDetailComponent,
+   
   ],
   imports: [
+    HttpClientModule,
     BrowserModule
   ],
   providers: [
