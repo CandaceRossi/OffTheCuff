@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form/user-form.component';
 
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import {freeApiService} from './services/freeapi.service';
 
 @NgModule({
@@ -15,8 +15,8 @@ import {freeApiService} from './services/freeapi.service';
     AppComponent,
     ContactComponent,
     CommentsComponent,
-    UserFormComponent
-    HttpClientModule
+    UserFormComponent,
+    HttpClient
   ],
   imports: [
     BrowserModule
