@@ -19,7 +19,7 @@ import {freeApiService} from './services/freeapi.service';
     HttpClient
   ],
   imports: [
-    HttpClientModule,
+    HttpClient,
     BrowserModule
   ],
   providers: [
