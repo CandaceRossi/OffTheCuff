@@ -1,31 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { CommentsService } from './comments.service';
+import { freeApiService} from '../services/freeapi.service';
 
 @Component({
   selector: 'app-comments',
-  template: `
-  <h2>{{title}}</h2>
-  <ul>
-    <li *ngFor="let comment of comments">
-    {{comment}}
-    </li>
-  </ul>
-  
-  `,
+  template:  './comments.component.html',
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-  title = "Comment Title";
-  comments;
+  
+  
+  Comments:any = []
+ 
 
-  constructor(service: CommentsService) {
-    this.comments = service.getComments();
-  }
+  constructor(private freeApiService: freeApiService) { }
 
   ngOnInit(): void {
+    this.freeApiService.GetComments().subscribe(res => {
+      console.log(res)
+      this.Comments = res;
+    });
   }
 
-  // getTitle() {
-  //   return this.title
-  // }
+
+  delete(id:any, i:any) {
+    console.log(id);
+    if(window.confirm('Do you want to go ahead?')) {
+      this.freeApiService.deleteComment(id).subscribe((res) => {
+        this.Comments.splice(i, 1);
+      })
+    }
+  }
 }
+ 
